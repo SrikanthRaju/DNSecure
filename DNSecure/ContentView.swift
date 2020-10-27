@@ -81,6 +81,7 @@ struct ContentView {
                    let uuid = UUID(uuidString: usedID),
                    let server = self.servers.find(by: uuid) {
                     manager.dnsSettings = server.configuration.toDNSSettings()
+                    manager.onDemandRules = server.onDemandRules.toNEOnDemandRules()
                     manager.saveToPreferences { saveError in
                         self.updateStatus()
                         if let saveError = saveError as NSError? {

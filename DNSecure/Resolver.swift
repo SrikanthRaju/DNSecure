@@ -94,10 +94,68 @@ extension Configuration: CustomStringConvertible {
     }
 }
 
+struct OnDemandRule {
+    var name: String
+    var action: NEOnDemandRuleAction = .ignore
+    var interfaceType: NEOnDemandRuleInterfaceType = .any
+    var ssidMatch: [String] = []
+    var dnsSearchDomainMatch: [String] = []
+    var dnsServerAddressMatch: [String] = []
+    var useProbeURL = false
+    var probeURL = ""
+}
+
+extension OnDemandRule: Codable {}
+
+extension Array where Self.Element == OnDemandRule {
+    func toNEOnDemandRules() -> [NEOnDemandRule] {
+        self.lazy
+            .map { rule in
+                switch rule.action {
+                case .connect:
+                    let newRule = NEOnDemandRuleConnect()
+                    newRule.interfaceTypeMatch = rule.interfaceType
+                    newRule.ssidMatch = rule.ssidMatch
+                    newRule.dnsSearchDomainMatch = rule.dnsSearchDomainMatch
+                    newRule.dnsServerAddressMatch = rule.dnsServerAddressMatch
+                    newRule.probeURL = rule.useProbeURL ? URL(string: rule.probeURL) : nil
+                    return newRule
+                case .disconnect:
+                    let newRule = NEOnDemandRuleDisconnect()
+                    newRule.interfaceTypeMatch = rule.interfaceType
+                    newRule.ssidMatch = rule.ssidMatch
+                    newRule.dnsSearchDomainMatch = rule.dnsSearchDomainMatch
+                    newRule.dnsServerAddressMatch = rule.dnsServerAddressMatch
+                    newRule.probeURL = rule.useProbeURL ? URL(string: rule.probeURL) : nil
+                    return newRule
+                case .evaluateConnection:
+                    let newRule = NEOnDemandRuleEvaluateConnection()
+                    newRule.interfaceTypeMatch = rule.interfaceType
+                    newRule.ssidMatch = rule.ssidMatch
+                    newRule.dnsSearchDomainMatch = rule.dnsSearchDomainMatch
+                    newRule.dnsServerAddressMatch = rule.dnsServerAddressMatch
+                    newRule.probeURL = rule.useProbeURL ? URL(string: rule.probeURL) : nil
+                    return newRule
+                case .ignore:
+                    let newRule = NEOnDemandRuleIgnore()
+                    newRule.interfaceTypeMatch = rule.interfaceType
+                    newRule.ssidMatch = rule.ssidMatch
+                    newRule.dnsSearchDomainMatch = rule.dnsSearchDomainMatch
+                    newRule.dnsServerAddressMatch = rule.dnsServerAddressMatch
+                    newRule.probeURL = rule.useProbeURL ? URL(string: rule.probeURL) : nil
+                    return newRule
+                default:
+                    preconditionFailure("Unexpected NEOnDemandRuleAction")
+                }
+            }
+    }
+}
+
 struct Resolver {
     var id = UUID()
     var name: String
     var configuration: Configuration
+    var onDemandRules: [OnDemandRule] = []
 }
 
 extension Resolver: Identifiable {}

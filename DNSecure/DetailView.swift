@@ -156,6 +156,20 @@ extension DetailView: View {
                     }
                 }
             }
+            Section(header: Text("On Demand Rules")) {
+                ForEach(0..<self.server.onDemandRules.count, id: \.self) { i in
+                    NavigationLink(
+                        self.server.onDemandRules[i].name,
+                        destination: RuleView(rule: self.$server.onDemandRules[i])
+                    )
+                }
+                .onDelete { self.server.onDemandRules.remove(atOffsets: $0) }
+                .onMove { self.server.onDemandRules.move(fromOffsets: $0, toOffset: $1) }
+                Button("Add New Rule") {
+                    self.server.onDemandRules
+                        .append(OnDemandRule(name: "New Rule"))
+                }
+            }
         }
         .navigationTitle(self.server.name)
     }

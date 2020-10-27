@@ -16,6 +16,8 @@
 		8940024E24ACBD2800EBE74B /* DNSecureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8940024D24ACBD2800EBE74B /* DNSecureTests.swift */; };
 		8940025924ACBD2800EBE74B /* DNSecureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8940025824ACBD2800EBE74B /* DNSecureUITests.swift */; };
 		8940026924ACBE4900EBE74B /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8940026824ACBE4900EBE74B /* NetworkExtension.framework */; };
+		894958AD2548405E009691D5 /* RuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894958AC2548405E009691D5 /* RuleView.swift */; };
+		894958B22548479B009691D5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894958B12548479B009691D5 /* Extensions.swift */; };
 		8963FDFB251DF1BC00E3DFE7 /* BundleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8963FDFA251DF1BC00E3DFE7 /* BundleExtensions.swift */; };
 		8986CDCF251D9B3400D947CD /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8986CDCE251D9B3400D947CD /* Resolver.swift */; };
 		89CB922125209DD100B6983C /* HowToActivateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CB922025209DD100B6983C /* HowToActivateView.swift */; };
@@ -56,6 +58,8 @@
 		8940025A24ACBD2800EBE74B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8940026624ACBE4900EBE74B /* DNSecure.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DNSecure.entitlements; sourceTree = "<group>"; };
 		8940026824ACBE4900EBE74B /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		894958AC2548405E009691D5 /* RuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleView.swift; sourceTree = "<group>"; };
+		894958B12548479B009691D5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8963FDFA251DF1BC00E3DFE7 /* BundleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtensions.swift; sourceTree = "<group>"; };
 		8986CDCE251D9B3400D947CD /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		89CB922025209DD100B6983C /* HowToActivateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToActivateView.swift; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 				8963FDFA251DF1BC00E3DFE7 /* BundleExtensions.swift */,
 				890B80DE251DC6B50046BAA0 /* Presets.swift */,
 				890B80D4251DC3A20046BAA0 /* DetailView.swift */,
+				894958AC2548405E009691D5 /* RuleView.swift */,
+				894958B12548479B009691D5 /* Extensions.swift */,
 				8940023F24ACBD2800EBE74B /* Assets.xcassets */,
 				8940024424ACBD2800EBE74B /* Info.plist */,
 				8940024124ACBD2800EBE74B /* Preview Content */,
@@ -291,9 +297,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8986CDCF251D9B3400D947CD /* Resolver.swift in Sources */,
+				894958B22548479B009691D5 /* Extensions.swift in Sources */,
 				89CB922125209DD100B6983C /* HowToActivateView.swift in Sources */,
 				890B80D5251DC3A20046BAA0 /* DetailView.swift in Sources */,
 				8940023E24ACBD2700EBE74B /* ContentView.swift in Sources */,
+				894958AD2548405E009691D5 /* RuleView.swift in Sources */,
 				890B80DF251DC6B50046BAA0 /* Presets.swift in Sources */,
 				8940023C24ACBD2700EBE74B /* DNSecureApp.swift in Sources */,
 				8963FDFB251DF1BC00E3DFE7 /* BundleExtensions.swift in Sources */,
